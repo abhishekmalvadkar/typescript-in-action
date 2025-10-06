@@ -34,4 +34,11 @@ describe('Array', () => {
     expect(patientIds[3]).toBe(4);
   });
 
+  Api({type : Type.Array.toString(), method : ArrayMethod.push.toString()})
+  it('should return new length of array when add new element in the existing array', () => {
+    const patientIds : number[] = [1,2];
+    const newLengthOrPatientIdsArray = patientIds.push(3, 4);
+    expect(newLengthOrPatientIdsArray).toBe(4);
+  });
+
 });
