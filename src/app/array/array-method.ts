@@ -1,3 +1,4 @@
 export enum ArrayMethod {
-    push
+    push,
+    join
 }
