@@ -45,8 +45,15 @@ describe('Array', () => {
   Api({type : Type.Array.toString(), method : ArrayMethod.join.toString()})
   it('should join all email ids with pipe seperated from emaiil ids array', () => {
     const emailIds : string[] = ['abc@xyz.com', 'def@xyz.com', 'ghi@xyz.com'];
-    const emailIdsCommaSeperated = emailIds.join(PIPE);
-    expect(emailIdsCommaSeperated).toBe('abc@xyz.com | def@xyz.com | ghi@xyz.com');
+    const emailIdsPipeSeperated = emailIds.join(PIPE);
+    expect(emailIdsPipeSeperated).toBe('abc@xyz.com | def@xyz.com | ghi@xyz.com');
+  });
+
+  Api({type : Type.Array.toString(), method : ArrayMethod.join.toString()})
+  it('should join all email ids with comma seperated from emaiil ids array becuase default seperator of join method is comma if not passed', () => {
+    const emailIds : string[] = ['abc@xyz.com', 'def@xyz.com', 'ghi@xyz.com'];
+    const emailIdsCommaSeperated = emailIds.join();
+    expect(emailIdsCommaSeperated).toBe('abc@xyz.com,def@xyz.com,ghi@xyz.com');
   });
 
 });
