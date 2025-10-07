@@ -56,12 +56,22 @@ describe('Array', () => {
     expect(emailIdsCommaSeperated).toBe('abc@xyz.com,def@xyz.com,ghi@xyz.com');
   });
 
-  Api({type : Type.Array.toString(), method : ArrayMethod.join.toString()})
+  Api({type : Type.Array.toString(), method : ArrayMethod.pop.toString()})
   it('should remove or pop the last element from array', () => {
     const patientIds : number[] = [1,2,3,4];
     const firstPoppedElemet = patientIds.pop();
     expect(firstPoppedElemet).toBe(4);
     expect(patientIds).toHaveSize(3);
+  });
+
+  Api({type : Type.Array.toString(), method : ArrayMethod.pop.toString()})
+  it('should remove or pop the last element from array and if array is empty then retuen undefined', () => {
+    const patientIds : number[] = [1];
+    const firstPoppedElemet = patientIds.pop();
+    expect(firstPoppedElemet).toBe(1);
+    expect(patientIds).toHaveSize(0);
+    const poppedElement = patientIds.pop();
+    expect(poppedElement).toBeUndefined();
   });
 
 });
