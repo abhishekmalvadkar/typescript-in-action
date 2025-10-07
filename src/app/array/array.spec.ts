@@ -56,4 +56,12 @@ describe('Array', () => {
     expect(emailIdsCommaSeperated).toBe('abc@xyz.com,def@xyz.com,ghi@xyz.com');
   });
 
+  Api({type : Type.Array.toString(), method : ArrayMethod.join.toString()})
+  it('should remove or pop the last element from array', () => {
+    const patientIds : number[] = [1,2,3,4];
+    const firstPoppedElemet = patientIds.pop();
+    expect(firstPoppedElemet).toBe(4);
+    expect(patientIds).toHaveSize(3);
+  });
+
 });
