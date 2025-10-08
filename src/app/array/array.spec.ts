@@ -113,4 +113,11 @@ describe('Array', () => {
     expect(indexOfThree).toBe(2);
   });
 
+   Api({type : Type.Array.toString(), method : ArrayMethod.indexOf.toString()})
+  it('should return -1 index of element if not found in array so we can use this in condition to check element present in array or not', () => {
+    const patientIds : number[] = [1,2,3,4];
+    const indexOfFive = patientIds.indexOf(5);
+    expect(indexOfFive).toBe(-1);
+  });
+
 });
