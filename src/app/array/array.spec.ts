@@ -106,4 +106,11 @@ describe('Array', () => {
     expect(allPatientIds[6]).toBe(7);
   });
 
+  Api({type : Type.Array.toString(), method : ArrayMethod.indexOf.toString()})
+  it('should return index of element if found in array', () => {
+    const patientIds : number[] = [1,2,3,4];
+    const indexOfThree = patientIds.indexOf(3);
+    expect(indexOfThree).toBe(2);
+  });
+
 });
