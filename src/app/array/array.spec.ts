@@ -74,4 +74,19 @@ describe('Array', () => {
     expect(poppedElement).toBeUndefined();
   });
 
+   Api({type : Type.Array.toString(), method : ArrayMethod.concat.toString()})
+  it('should combine two or more arrays and return new merged array without modifing existing arrays so it promotes immutability', () => {
+    const admittedPatientIds : number[] = [1,2];
+    const dischargedPatientIds : number[] = [3,4];
+    const newPatientIds : number[] = [5,6];
+    const allPatientIds = admittedPatientIds.concat(dischargedPatientIds, newPatientIds);
+    expect(allPatientIds).toHaveSize(6);
+    expect(allPatientIds[0]).toBe(1);
+    expect(allPatientIds[1]).toBe(2);
+    expect(allPatientIds[2]).toBe(3);
+    expect(allPatientIds[3]).toBe(4);
+    expect(allPatientIds[4]).toBe(5);
+    expect(allPatientIds[5]).toBe(6);
+  });
+
 });

@@ -1,5 +1,6 @@
 export enum ArrayMethod {
     push,
     join,
-    pop
+    pop,
+    concat
 }
