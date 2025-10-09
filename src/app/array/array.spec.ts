@@ -137,10 +137,24 @@ describe('Array', () => {
   });
 
   Api({type : Type.Array.toString(), method : ArrayMethod.at.toString()})
-  it('Returns the item located at the specified index from array', () => {
+  it('Returns the item located at the specified index from array or in this case we can say returne first element from array', () => {
     const patientIds : number[] = [1,2,3,4];
     const elementAtZerothIndex = patientIds.at(0);
     expect(elementAtZerothIndex).toBe(1);
+  });
+
+  Api({type : Type.Array.toString(), method : ArrayMethod.at.toString()})
+  it('Returns the undefined if element is not there at given index', () => {
+    const patientIds : number[] = [1,2,3,4];
+    const elementAtForthIndex = patientIds.at(4);
+    expect(elementAtForthIndex).toBeUndefined();
+  });
+
+  Api({type : Type.Array.toString(), method : ArrayMethod.at.toString()})
+  it('Returns the element there at last index or we can say returns last element', () => {
+    const patientIds : number[] = [1,2,3,4];
+    const elementAtLastIndex = patientIds.at(-1);
+    expect(elementAtLastIndex).toBe(4);
   });
 
 });
