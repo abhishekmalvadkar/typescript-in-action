@@ -2,6 +2,7 @@ import { Api } from "../api";
 import { Type } from "../type";
 import { ArrayMethod } from "./array-method";
 import { ArrayProperty } from "./array-property";
+import { dummyThreePatients } from "./dummyThreePatients";
 
 const PIPE = ' | ';
 describe('Array', () => {
@@ -113,11 +114,21 @@ describe('Array', () => {
     expect(indexOfThree).toBe(2);
   });
 
-   Api({type : Type.Array.toString(), method : ArrayMethod.indexOf.toString()})
+  Api({type : Type.Array.toString(), method : ArrayMethod.indexOf.toString()})
   it('should return -1 index for element if not found in array so we can use this in condition to check element present in array or not', () => {
     const patientIds : number[] = [1,2,3,4];
     const indexOfFive = patientIds.indexOf(5);
     expect(indexOfFive).toBe(-1);
   });
 
+  Api({type : Type.Array.toString(), method : ArrayMethod.find.toString()})
+  it('Returns the value of the first element in the array where predicate is true', () => {
+    const patients = dummyThreePatients();
+    const foundPatient = patients.find(patient => patient.id == 2);
+    expect(foundPatient?.id).toBe(2);
+    expect(foundPatient?.name).toBe('cde');
+  });
+
 });
+
+

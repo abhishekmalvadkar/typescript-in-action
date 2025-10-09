@@ -3,5 +3,6 @@ export enum ArrayMethod {
     join,
     pop,
     concat,
-    indexOf
+    indexOf,
+    find
 }
