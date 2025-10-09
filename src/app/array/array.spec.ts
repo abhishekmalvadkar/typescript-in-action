@@ -136,6 +136,13 @@ describe('Array', () => {
     expect(foundPatient).toBeUndefined();
   });
 
+  Api({type : Type.Array.toString(), method : ArrayMethod.at.toString()})
+  it('Returns the item located at the specified index from array', () => {
+    const patientIds : number[] = [1,2,3,4];
+    const elementAtZerothIndex = patientIds.at(0);
+    expect(elementAtZerothIndex).toBe(1);
+  });
+
 });
 
 

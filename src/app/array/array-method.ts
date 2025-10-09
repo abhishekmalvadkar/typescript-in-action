@@ -4,5 +4,6 @@ export enum ArrayMethod {
     pop,
     concat,
     indexOf,
-    find
+    find,
+    at
 }
