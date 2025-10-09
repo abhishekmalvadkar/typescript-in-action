@@ -129,6 +129,13 @@ describe('Array', () => {
     expect(foundPatient?.name).toBe('cde');
   });
 
+  Api({type : Type.Array.toString(), method : ArrayMethod.find.toString()})
+  it('Returns undefined if predicate is false i.e element not found in the array', () => {
+    const patients = dummyThreePatients();
+    const foundPatient = patients.find(patient => patient.id == 99);
+    expect(foundPatient).toBeUndefined();
+  });
+
 });
 
 
