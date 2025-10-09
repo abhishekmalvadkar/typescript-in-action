@@ -2,6 +2,7 @@ import { Api } from "../api";
 import { Type } from "../type";
 import { ArrayMethod } from "./array-method";
 import { ArrayProperty } from "./array-property";
+import { ArrayUtils } from "./ArrayUtils";
 import { dummyThreePatients } from "./dummyThreePatients";
 
 const PIPE = ' | ';
@@ -139,7 +140,7 @@ describe('Array', () => {
   Api({type : Type.Array.toString(), method : ArrayMethod.at.toString()})
   it('Returns the item located at the specified index from array or in this case we can say returne first element from array', () => {
     const patientIds : number[] = [1,2,3,4];
-    const elementAtZerothIndex = patientIds.at(0);
+    const elementAtZerothIndex = ArrayUtils.getFirstFrom(patientIds);
     expect(elementAtZerothIndex).toBe(1);
   });
 
@@ -153,7 +154,7 @@ describe('Array', () => {
   Api({type : Type.Array.toString(), method : ArrayMethod.at.toString()})
   it('Returns the element there at last index or we can say returns last element', () => {
     const patientIds : number[] = [1,2,3,4];
-    const elementAtLastIndex = patientIds.at(-1);
+    const elementAtLastIndex = ArrayUtils.getLastFrom(patientIds);
     expect(elementAtLastIndex).toBe(4);
   });
 
